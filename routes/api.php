@@ -14,6 +14,51 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Public Routes
+
+// Users
+
+    // Create
+    Route::post('users', 'Api\\UserController@store');
+
+// Authentication
+
+    // Login
+    Route::post('auth/login', 'Api\\AuthController@login');
+
+// Private Routes
+Route::group(['middleware' => ['apiJwt']], function() {
+
+    // Authentication
+
+        // Me
+        Route::get('auth/me', 'Api\\AuthController@me');
+
+        // Logout
+        Route::post('auth/logout', 'Api\\AuthController@logout');
+
+    // Users
+
+        // List
+        Route::get('users', 'Api\\UserController@index');
+
+        // Edit 
+
+
+        // Delete
+
+    
+    // Images
+
+        // List Personal (pagination 20)
+
+
+        // List Public (pagination 20)
+
+
+        // Upload
+
+
+        // Delete
+
 });
