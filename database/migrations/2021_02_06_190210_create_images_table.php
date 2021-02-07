@@ -15,12 +15,14 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('user_id')->constrained('users');
+            $table->uuid('user_id');
             $table->string('path');
             $table->string('title');
             $table->text('description');
             $table->text('tags');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }
