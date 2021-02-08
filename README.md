@@ -28,7 +28,7 @@ https://github.com/CrisGiordani/imgger-frontend
 4. $ php artisan storage:link
 4. $ php artisan serve
 
-Para testar sem front-end, uma alternativa é utilizar o Insomnia (insomnia.rest).
+Para testar sem front-end, uma alternativa é utilizar o <a href="https://insomnia.rest/" target="_blank">Insomnia</a>.
 Configuração do Insomnia disponível na pasta _insomnia (importar)
 
 <img src="https://www.cuby.com.br/cli/imgger/insomnia.png">
