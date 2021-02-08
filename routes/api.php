@@ -43,22 +43,19 @@ Route::group(['middleware' => ['apiJwt']], function() {
         Route::get('users', 'Api\\UserController@index');
 
         // Edit 
-
+        Route::put('users', 'Api\\UserController@update');
 
         // Delete
 
     
     // Images
 
-        // List Personal (pagination 20)
-
-
-        // List Public (pagination 20)
-
+        // List Personal Images
+        Route::get('images', 'Api\\ImageController@list');
 
         // Upload
-
+        Route::post('images', 'Api\\UploadController@upload');
 
         // Delete
-
+        Route::delete('images/{id}', 'Api\\ImageController@delete');
 });

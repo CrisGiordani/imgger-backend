@@ -1,34 +1,41 @@
+Este projeto é parte de um teste prático para um processo seletivo referente à vaga de Analista de Desenvolvimento - Programador Back-end PHP. Este repositório consiste no Back-end da aplicação Imgger, para gerenciamento de um banco de imagens.
+<br>
+Desenvolvido em PHP com Framework Laravel<br >
+<br>
+<img src="https://www.cuby.com.br/cli/imgger/imgger.png">
+<br>
+<br>
+Aplicação web para gerenciamento de imagens (banco de imagens), contendo dois perfis de acesso, com duas visões diferentes (administrador e usuário).<br>
+<br>
+### Bibliotecas mais importantes
+<br>
+<ul>
+<li><a href="https://github.com/fruitcake/laravel-cors" target="_blank">fruitcake/laravel-cors</a> para autorizar conexão do cliente</li>
+<li><a href="https://github.com/tymondesigns/jwt-auth" target="_blank">tymon/jwt-auth</a> para tokens de autenticação</li>
+</ul>
+<br>
+*********
+
+Utilização:
+
+Front-end em ReactJS
+https://github.com/CrisGiordani/imgger-frontend
+
+
+1. $ git clone https://github.com/CrisGiordani/imgger-backend
+2. $ cd imgger-backend  
+3. $ composer install
+4. $ php artisan storage:link
+4. $ php artisan serve
+
+Para testar sem front-end, uma alternativa é utilizar o Insomnia (insomnia.rest).
+Configuração do Insomnia disponível na pasta _insomnia (importar)
+
+<img src="https://www.cuby.com.br/cli/imgger/insomnia.png">
+
+***********
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## Running locally
-* Download or clone this repo.    
-* In terminal, cd into the project directory.    
-* Create a .env file by copying the .env.example file.    
-`cp .env.example .env`    
-* Install composer dependencies.    
-`composer install`    
-* Generate an app key    
-`php artisan key:generate`    
-* Serve    
-`php artisan serve`    
-Now the project will be running on your localhost. http://localhost:8000
-
-## Making changes 
-In order for changes to the React files to be reflected in your browser you need to do the following.    
-* Install npm dependencies.    
-`npm install`    
-* Run webpack    
-`npm run dev`    
-* Refresh browser   
-
-
 
 ## About Laravel
 

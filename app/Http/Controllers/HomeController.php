@@ -13,7 +13,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
         $this->middleware('auth');
     }
 
@@ -24,9 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = [
-            'john', 'doe'
-          ];
-          return view('home')->with('data', json_encode($data));
+        return view('app');
     }
 }
