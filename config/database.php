@@ -15,8 +15,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
-
+    // 'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => 'mysql',
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -30,6 +30,15 @@ return [
     | All database work in Laravel is done through the PHP PDO facilities
     | so make sure you have the driver for your particular database of
     | choice installed on your machine before you begin development.
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=imgger
+    DB_USERNAME=root
+    DB_PASSWORD=123456
+
+
     |
     */
 
@@ -41,6 +50,21 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
+        'newConnection' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'db2',
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
         ],
 
         'mysql' => [
