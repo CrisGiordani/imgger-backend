@@ -11,14 +11,12 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    
+    public function index()
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -33,19 +31,16 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         $user = auth()->user();
-        $user->update($request->all());
+        $user->name = $request->name;
+        $user->email = $request->email;
+        
+        if(!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->update();
 
         return $user;
     }
