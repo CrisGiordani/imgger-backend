@@ -17,6 +17,14 @@ class UserController extends Controller
         return response()->json($users);
     }
 
+    public function show($id) {
+        $user = DB::table('users')
+            ->where('id', $id)
+            ->get();
+
+        return response()->json($user);
+    }
+
     public function store(Request $request)
     {
 

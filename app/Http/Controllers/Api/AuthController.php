@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
+
     public function login(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
@@ -27,35 +23,23 @@ class AuthController extends Controller
 
     }
 
-     /**
-     * Get the authenticated User.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function me()
     {
         return response()->json(auth('api')->user());
     }
 
-    /**
-     * Log the user out (Invalidate the token).
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function logout()
-    {
-        auth('api')->logout();
+    public function logout(Request $request) {
+        try {
+            $this
+            ->user
+            ->logout($request->input('token'));
+        } catch (\Throwable|\Exception $e) {
+            return ResponseService::exception('users.logout',null,$e);
+        }
 
-        return response()->json();
+        return response(['status' => true,'msg' => 'Deslogado com sucesso'], 200);
     }
-
-    /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
+    
     protected function respondWithToken($token)
     {
         return response()->json([

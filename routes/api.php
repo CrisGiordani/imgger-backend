@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // Private Routes //
-Route::group(['middleware' => ['apiJwt']], function() {
+Route::group(['middleware' => ['jwt.verify']], function() {
 
     // Authentication
         // Me
@@ -24,19 +24,43 @@ Route::group(['middleware' => ['apiJwt']], function() {
         Route::post('auth/logout', 'Api\\AuthController@logout');
 
     // Users
-        // List
-        Route::get('users', 'Api\\UserController@index');
+
+        // Show 
+        Route::get('user/{id}', 'Api\\UserController@show');
+
         // Edit 
         Route::put('users', 'Api\\UserController@update');
+
         // Delete
+        ////////////////////////////////////
     
     // Images
+
         // List Personal Images
-        Route::get('images', 'Api\\ImageController@list');
+        Route::get('images/{id}', 'Api\\ImageController@list');
+
+         // List All Images
+         Route::get('images', 'Api\\ImageController@listAll');
+
         // Upload
         Route::post('images', 'Api\\UploadController@upload');
+
         // Delete
         Route::delete('images/{id}', 'Api\\ImageController@delete');
-
+        
     // Admin
+
+        // List Users
+        Route::get('admin/users', 'Api\\AdminController@indexUser');
+
+        // Update User
+        Route::put('admin/user/{id}', 'Api\\AdminController@updateUser');
+
+        // Delete User
+        Route::delete('admin/user/{id}', 'Api\\AdminController@destroyUser');
+
+        // List Imagens
+        Route::get('admin/images', 'Api\\AdminController@indexImages');
+        
+
 });
