@@ -22,7 +22,7 @@ class CreateImagesTable extends Migration
             $table->text('tags');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
 
         });
     }

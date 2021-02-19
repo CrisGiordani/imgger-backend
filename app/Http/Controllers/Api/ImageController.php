@@ -40,9 +40,9 @@ class ImageController extends Controller
             $allImages = DB::table('images')
                 ->join('users', 'users.id', '=', 'images.user_id')
                 ->select('users.*', 'images.*')
-                ->where('images.title', 'like', $request->search)
-                ->orWhere('images.description', 'like', $request->search)
-                ->orWhere('images.tags', 'like', $request->search)
+                ->where('images.title', 'like', '%'.$request->search.'%')
+                ->orWhere('images.description', 'like', '%'.$request->search.'%')
+                ->orWhere('images.tags', 'like', '%'.$request->search.'%')
                 ->orderBy('images.updated_at', 'desc')
                 ->simplePaginate(15);
         } else {
