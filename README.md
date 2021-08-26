@@ -1,11 +1,9 @@
-Este projeto é parte de um teste prático para um processo seletivo referente à vaga de Analista de Desenvolvimento - Programador Back-end PHP. Este repositório consiste no Back-end da aplicação Imgger, para gerenciamento de um banco de imagens.
-<br>
-Desenvolvido em PHP com Framework Laravel<br >
-<br>
+
 <img src="https://www.cuby.com.br/cli/imgger/imgger.png">
 <br>
-<br>
 Aplicação web para gerenciamento de imagens (banco de imagens), contendo dois perfis de acesso, com duas visões diferentes (administrador e usuário).<br>
+<br>
+Desenvolvido em PHP com Framework Laravel<br >
 <br>
 ### Bibliotecas mais importantes
 <br>
